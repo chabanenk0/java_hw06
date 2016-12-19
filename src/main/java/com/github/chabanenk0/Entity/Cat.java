@@ -1,6 +1,7 @@
 package com.github.chabanenk0.Entity;
 
 import com.github.chabanenk0.Annotation.Use;
+import org.junit.Ignore;
 
 /**
  * Cat class
@@ -8,16 +9,16 @@ import com.github.chabanenk0.Annotation.Use;
  */
 public class Cat
 {
-    private String name;
+    protected String name;
 
     @Use
-    private String color;
+    protected String color;
 
     @Use
-    private int age;
+    public int age;
 
     @Use
-    private int legCount;
+    protected int legCount;
 
     @Use
     private float fullLength;
