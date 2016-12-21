@@ -2,8 +2,10 @@ package com.github.chabanenk0;
 
 import com.github.chabanenk0.Entity.Car;
 import com.github.chabanenk0.Entity.Cat;
+import com.github.chabanenk0.Entity.Engine;
 import com.github.chabanenk0.Entity.Human;
 import com.github.chabanenk0.Service.BeanRepresenter;
+import com.github.chabanenk0.Service.CloneCreator;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -68,6 +70,28 @@ public class Main
 
         Map<String, String> humanRepresentation = beanRepresenter.getBeanRepresentation(human);
         printRepresentation(humanRepresentation);
+
+        Engine engine = new Engine();
+        engine.setName("Zaporozhetz Z123");
+        engine.setVolume(1.5);
+
+        car.setEngine(engine);
+        car.setDriver(human);
+        System.out.println(car);
+
+        CloneCreator cloneCreator = new CloneCreator();
+        Car clonnedCar = null;
+        try {
+            clonnedCar = (Car) cloneCreator.clone(car);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        }
+        car.getEngine().setName("UpdatedZapor");
+        car.getDriver().setLastName("NewDriver");
+        System.out.println("Clonned car:");
+        System.out.println(clonnedCar);
     }
 
     private static void printRepresentation(Map<String, String> representation)

@@ -75,4 +75,9 @@ public class Human
     public void setWeight(float weight) {
         this.weight = weight;
     }
+
+    public String toString()
+    {
+        return "Human(" + this.getFirstName() + " " + this.getLastName() + ")\n";
+    }
 }

@@ -1,5 +1,6 @@
 package com.github.chabanenk0.Entity;
 
+import com.github.chabanenk0.Annotation.Clone;
 import com.github.chabanenk0.Annotation.Use;
 
 /**
@@ -22,6 +23,12 @@ public class Car
     private int yearOfProduction;
 
     private String country;
+
+    @Clone
+    private Engine engine;
+
+    @Clone
+    private Human driver;
 
     public Car()
     {
@@ -73,5 +80,28 @@ public class Car
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public Engine getEngine() {
+        return engine;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
+
+    public Human getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Human driver) {
+        this.driver = driver;
+    }
+
+    public String toString()
+    {
+        return "Car:\n Model:" + this.getModel() + "\n Type:" +  this.getType()
+                + " \n Color:" + this.getColor() + "\n Country:" + this.getCountry()
+                + " \n Engine:" + this.getEngine() + " Driver:" + this.getDriver() + "\n";
     }
 }
