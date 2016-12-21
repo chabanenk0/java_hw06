@@ -1,6 +1,7 @@
 package com.github.chabanenk0.Entity;
 
 import com.github.chabanenk0.Annotation.Clone;
+import com.github.chabanenk0.Annotation.Compare;
 import com.github.chabanenk0.Annotation.Use;
 
 /**
@@ -9,17 +10,21 @@ import com.github.chabanenk0.Annotation.Use;
 public class Car
 {
     @Use
+    @Compare
     private String color;
 
     @Use
+    @Compare
     private int maxSpeed;
 
     @Use
     private String type;
 
     @Use
+    @Compare
     private String model;
 
+    @Compare
     private int yearOfProduction;
 
     private String country;

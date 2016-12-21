@@ -1,13 +1,16 @@
 package com.github.chabanenk0;
 
+import com.github.chabanenk0.Entity.BeanComparator.CompareResult;
 import com.github.chabanenk0.Entity.Car;
 import com.github.chabanenk0.Entity.Cat;
 import com.github.chabanenk0.Entity.Engine;
 import com.github.chabanenk0.Entity.Human;
+import com.github.chabanenk0.Service.BeanComparator;
 import com.github.chabanenk0.Service.BeanRepresenter;
 import com.github.chabanenk0.Service.CloneCreator;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -24,6 +27,19 @@ public class Main
         car.setModel("Skoda Octavia");
         car.setType("Carcar");
         car.setYearOfProduction(2010);
+
+        return car;
+    }
+
+    private static Car createSecondCar()
+    {
+        Car car = new Car();
+        car.setColor("Green");
+        car.setCountry("Ukraine");
+        car.setMaxSpeed(153);
+        car.setModel("Skoda Octavia");
+        car.setType("sedan");
+        car.setYearOfProduction(2011);
 
         return car;
     }
@@ -92,6 +108,14 @@ public class Main
         car.getDriver().setLastName("NewDriver");
         System.out.println("Clonned car:");
         System.out.println(clonnedCar);
+        Car secondCar = createSecondCar();
+
+        BeanComparator beanComparator = new BeanComparator();
+        List<CompareResult> results = beanComparator.compare(car, secondCar);
+        System.out.println("Field\tValue1\tValue2\tIsEqual");
+        for(CompareResult resultItem: results) {
+            System.out.println(resultItem);
+        }
     }
 
     private static void printRepresentation(Map<String, String> representation)
